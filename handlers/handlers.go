@@ -9,7 +9,7 @@ import (
 	"github.com/rs/cors"
 )
 
-func handlers() {
+func Handlers() {
 	router := mux.NewRouter()
 	PORT := os.Getenv("PORT")
 	if PORT == "" {

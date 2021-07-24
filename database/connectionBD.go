@@ -17,10 +17,17 @@ func ConnectBD() *mongo.Client {
 	if error != nil {
 		log.Fatal(error)
 	}
+	CheckConnection()
+	log.Println("Connection Sussecsfull with a BD")
+	return client
+}
+
+func CheckConnection() int {
+	client, error := mongo.Connect(context.TODO(), clientOption)
 	error = client.Ping(context.TODO(), nil)
 	if error != nil {
 		log.Fatal(error)
+		return 1
 	}
-	log.Println("Connection Sussecsfull with a BD")
-	return client
+	return 0
 }

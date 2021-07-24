@@ -11,6 +11,7 @@ import (
 
 func Handlers() {
 	router := mux.NewRouter()
+
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
 		PORT = "8080"
